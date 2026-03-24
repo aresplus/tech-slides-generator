@@ -88,3 +88,58 @@
 1. **环境准备**：
    ```bash
    pip install python-pptx requests
+   ```
+2. **运行测试**：
+   ```bash
+   python scripts/test_generate.py
+   ```
+   该脚本会读取 `assets/` 里的模板并生成一个带有 Cyber-Blue 风格的 PPT 示例。
+
+---
+
+## 💡 Usage / 使用示例
+
+在支持该 Skill 的 AI 对话框中输入：
+
+> **(CN):** "调用 tech-slides-generator 技能。帮我写一份关于‘2026 具身智能机器人发展趋势’的 PPT，共 8 页。请使用 🔵 Cyber-Blue 主题，并在生成后直接给我 .pptx 下载链接。"
+
+> **(EN):** "Use the tech-slides-generator skill to create a 6-slide deck for a cybersecurity workshop. Apply the 🟢 Matrix-Green theme and provide the final .pptx file for download."
+
+---
+
+## 🏗 Architecture / 项目架构
+
+| File / 文件夹 | Purpose / 用途 |
+| :--- | :--- |
+| `SKILL.md` | **Core Brain**: 引导 Claude 的行为逻辑与工作流。 |
+| `references/` | **Knowledge Base**: 存放设计系统、RGB 色值及 Python 代码防幻觉指南。 |
+| `assets/` | **Static Assets**: 包含 16:9 的原生空白 PPT 模板基底。 |
+| `scripts/` | **Dev Tools**: 供开发者在本地环境进行测试的 Python 脚本。 |
+
+---
+
+## 🧠 Philosophy / 设计理念
+
+> *"Inspired by the **Vibe Coding** philosophy — why design manually when you can define the soul of a presentation through natural language and let AI handle the engineering?"*
+> 
+> *"灵感源自 **Vibe Coding** 理念 —— 当你可以通过自然语言定义演示文稿的灵魂并让 AI 处理工程细节时，为什么还要手动设计？"*
+
+---
+
+## 👤 Author / 作者
+
+**AresSheng**
+*AI Product Manager from China* 🇨🇳
+
+致力于通过 AI 消除自然语言与专业汇报之间的鸿沟，探索 AI 原生产品的无限可能。
+
+- **GitHub**: [aresplus](https://github.com/aresplus)
+- **X (Twitter)**: [@AresSheng](https://x.com/AresSheng)
+- **Zhihu**: [AresSheng](https://www.zhihu.com/people/aresng)
+
+---
+
+## 📄 License / 许可证
+
+本项目基于 [MIT License](LICENSE) 开源。
+```
