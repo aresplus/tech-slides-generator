@@ -40,23 +40,61 @@
 
 ---
 
-## 🛠 Installation / 安装方法
+## 🛠️ Installation & Getting Started / 安装与使用指南
 
-### For Claude Pro Users:
-1. 下载或克隆本项目。
-2. 打开 Claude，进入 **Customize -> Skills**。
-3. 点击 **Upload Skill**，将整个 `tech-slides-generator` 文件夹上传。
-4. 确保你的账户已启用 **Code Execution (Artifacts)** 功能。
+本工具是一套通用的 AI 技能资产，支持在多个主流 AI 平台中运行。请根据你惯用的工具选择对应的安装方案：
+
+### 使用场景1：Claude Pro (推荐：最佳原生体验)
+*适合追求一键下载、极致视觉体验的用户*
+
+1. **下载项目**：点击 GitHub 页面上方的 `Code -> Download ZIP`。
+2. **上传技能**：打开 Claude，进入 **Customize -> Skills**，点击 **Upload Skill**，上传解压后的文件夹或直接上传 ZIP 包。
+3. **启用功能**：确保技能开关已开启，且账户已启用 **Code Execution (Artifacts)**。
+4. **召唤它**：在对话框输入：“调用 tech-slides-generator 技能。帮我做一份关于 [主题] 的 PPT，使用 [色系] 主题。”
+
+### 使用场景2：ChatGPT Plus (Custom GPTs)
+*适合 OpenAI 生态用户，生成成功率极高*
+
+1. **创建 GPT**：进入 ChatGPT，点击 `Explore GPTs -> Create`。
+2. **配置指令**：将本项目根目录下的 `SKILL.md` 内容粘贴进 **Instructions**。
+3. **上传知识库**：在 **Knowledge** 模块上传 `references/` 文件夹下的所有文件及 `assets/base-template.pptx`。
+4. **开启权限**：勾选 **Code Interpreter** (数据分析) 选项。
+5. **召唤它**：直接下达指令，它会编写并运行代码给你吐出下载卡片。
+
+### 使用场景3：Cursor / Windsurf (AI 编程神器)
+*适合极客与程序员，直接在本地磁盘生成文件*
+
+1. **克隆项目**：`git clone https://github.com/aresplus/tech-slides-generator.git`。
+2. **AI 指令**：在 Cursor 的 **Composer** 模式（Cmd+I）下引用本项目的 `SKILL.md`。
+3. **一键生成**：输入：“按本项目的 Skill 逻辑，帮我生成一份关于 [主题] 的 PPT，并直接运行生成的 Python 脚本。”
+4. **即刻查看**：AI 会直接在你的当前目录下保存文件，无需手动下载。
+
+### 使用场景4：本地纯 Python 运行
+*适合不依赖 AI 界面、仅使用核心引擎的用户*
+
+1. **环境准备**：
+   ```bash
+   pip install python-pptx requests
+
+运行测试
+python scripts/test_generate.py
+该脚本会读取 assets/ 里的模板并生成一个带有 Cyber-Blue 风格的 PPT 示例。
 
 ---
 
 ## 💡 Usage / 使用示例
 
+示例：
+
 在 Claude 对话框中输入类似以下的指令：
 
-> "调用 **tech-slides-generator** 技能。帮我写一份关于‘2026 具身智能机器人发展趋势’的 PPT，共 8 页。请使用 **🔵 Cyber-Blue** 主题，并在生成后直接给我 .pptx 下载链接。"
+> (CN): "调用 tech-slides-generator 技能。帮我写一份关于‘2026 具身智能机器人发展趋势’的 PPT，共 8 页。请使用 🔵 Cyber-Blue 主题，并在生成后直接给我 .pptx 下载链接。"
+
+>(EN): "Use the tech-slides-generator skill to create a 6-slide deck for a cybersecurity workshop. Apply the 🟢 Matrix-Green theme and provide the final .pptx file for download."
+
 
 ---
+
 
 ## 🏗 Architecture / 项目架构
 
