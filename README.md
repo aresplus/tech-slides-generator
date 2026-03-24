@@ -135,7 +135,7 @@
 
 - **GitHub**: [aresplus](https://github.com/aresplus)
 - **X (Twitter)**: [@AresSheng](https://x.com/AresSheng)
-- **Zhihu**: [AresSheng](https://www.zhihu.com/people/aresng)
+- **Zhihu**: [盛少](https://www.zhihu.com/people/aresng)
 
 ---
 
