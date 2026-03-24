@@ -1,65 +1,79 @@
-# Tech Slides Design System (Python-PPTX Parameters)
+<p align="center">
+  <img src="https://img.shields.io/badge/Claude-Skill-blueviolet?style=for-the-badge&logo=anthropic" alt="Claude Skill" />
+  <img src="https://img.shields.io/badge/Output-Native_.PPTX-green?style=for-the-badge" alt="Native PPTX" />
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="MIT License" />
+  <img src="https://img.shields.io/badge/Author-AresSheng-orange?style=for-the-badge" alt="Author" />
+</p>
 
-> The aesthetic knowledge base for tech-slides-generator. This defines how CSS/Cyberpunk aesthetics are translated into `python-pptx` RGB parameters.
+<h1 align="center">⚡ Tech Slides Generator</h1>
 
-## 1. Expanded Color Themes (HEX mapped to RGB)
+<p align="center">
+  <strong>Turn natural language into stunning, production-grade native PPTX presentations.</strong><br/>
+  <em>用自然语言一键生成原生可编辑、科技感拉满的 PowerPoint (.pptx) 幻灯片。</em>
+</p>
 
-When writing Python code, convert these HEX values to `RGBColor(R, G, B)`.
+<p align="center">
+  <a href="#-features">Features</a> •
+  <a href="#-installation">Installation</a> •
+  <a href="#-usage">Usage</a> •
+  <a href="#-architecture">Architecture</a> •
+  <a href="#-author">Author</a>
+</p>
 
-### 1.1 Cyber-Purple (AI / Default)
-- `bg_primary`: #0B0D17 -> `RGBColor(11, 13, 23)`
-- `panel_bg`: #131629 -> `RGBColor(19, 22, 41)`
-- `accent_primary`: #7B2FFF -> `RGBColor(123, 47, 255)`
-- `text_main`: #E8E6F0 -> `RGBColor(232, 230, 240)`
+---
 
-### 1.2 Matrix-Green (Cybersecurity)
-- `bg_primary`: #000000 -> `RGBColor(0, 0, 0)`
-- `panel_bg`: #0A0F0A -> `RGBColor(10, 15, 10)`
-- `accent_primary`: #00FF41 -> `RGBColor(0, 255, 65)`
-- `text_main`: #C8E6C9 -> `RGBColor(200, 230, 201)`
+## 📖 What This Does / 项目简介
 
-### 1.3 Crimson-Red (Automotive / Hardcore Tech)
-- `bg_primary`: #0F0505 -> `RGBColor(15, 5, 5)`
-- `panel_bg`: #1A0A0A -> `RGBColor(26, 10, 10)`
-- `accent_primary`: #FF003C -> `RGBColor(255, 0, 60)`
-- `text_main`: #F5F5F5 -> `RGBColor(245, 245, 245)`
+**Tech Slides Generator** 是一款专为 Claude 设计的开源技能（Skill）。它彻底改变了 AI 生成 PPT 的方式：不再输出无聊的文本大纲或复杂的 HTML，而是直接利用 Claude 的 **Python 沙盒环境** 编写并执行脚本，为你提供一个**原生、可下载、完全可编辑**的 `.pptx` 文件。
 
-### 1.4 Solaris-Orange (Aerospace / Hardware)
-- `bg_primary`: #1A1A1A -> `RGBColor(26, 26, 26)`
-- `panel_bg`: #252525 -> `RGBColor(37, 37, 37)`
-- `accent_primary`: #FF6B2B -> `RGBColor(255, 107, 43)`
-- `text_main`: #F0E6DC -> `RGBColor(240, 230, 220)`
+它内置了一套“赛博朋克”设计系统，确保生成的幻灯片具备顶级科技发布会级别的视觉质感。
 
-### 1.5 Deep-Black (Ultimate Minimalism)
-- `bg_primary`: #000000 -> `RGBColor(0, 0, 0)`
-- `panel_bg`: #111111 -> `RGBColor(17, 17, 17)`
-- `accent_primary`: #FFFFFF -> `RGBColor(255, 255, 255)`
-- `text_main`: #CCCCCC -> `RGBColor(204, 204, 204)`
+---
 
-### 1.6 Pure-White (Clinical / Apple-Style)
-- `bg_primary`: #FFFFFF -> `RGBColor(255, 255, 255)`
-- `panel_bg`: #F2F2F7 -> `RGBColor(242, 242, 247)`
-- `accent_primary`: #0066CC -> `RGBColor(0, 102, 204)`
-- `text_main`: #1D1D1F -> `RGBColor(29, 29, 31)`
+## ✨ Key Features / 核心特性
 
-## 2. Typography Rules (Python Implementations)
+- 📥 **Native .pptx Output**: 直接下载真实的 PowerPoint 文件，双击即用，无需任何转换工具。
+- 🎨 **6 Premium Themes**: 内置从“赛博蓝”到“极简黑”的 6 套专业色系，覆盖 AI、网络安全、硬件、医疗等行业。
+- 📐 **Bento Box Layout**: 自动生成流行的“便当盒”布局和带发光边框的半透明面板。
+- 🌐 **Bilingual Support**: 深度优化中英文排版，自动适配微软雅黑与 Arial 字体。
+- 🖼️ **Smart Image Assets**: 自动从 Unsplash 调用高质量行业背景图。
 
-- **English Fonts**: Set `run.font.name = 'Arial'` or `'Consolas'` (for tech vibe).
-- **Chinese Fonts**: Set `run.font.name = 'Microsoft YaHei'` (微软雅黑) or `'PingFang SC'`.
-- **Title Weight**: Set `run.font.bold = True`, size = `Pt(44)` to `Pt(64)`.
-- **Colors**: ALWAYS set `run.font.color.rgb` to ensure text is visible against dark backgrounds.
+---
 
-## 3. Simulating Tech UI in PPTX
+## 🛠 Installation / 安装方法
 
-Since native PPTX doesn't support CSS glassmorphism easily via code, we simulate the "Bento Box" / "Cyber Panel" aesthetic:
-1. Create a shape: `shape = slide.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, left, top, width, height)`
-2. Set fill: `shape.fill.solid()`, `shape.fill.fore_color.rgb = panel_bg`
-3. Set glowing border: `shape.line.color.rgb = accent_primary`, `shape.line.width = Pt(1.5)`
-4. Add text into the shape using the `text_main` color.
+### For Claude Pro Users:
+1. 下载或克隆本项目。
+2. 打开 Claude，进入 **Customize -> Skills**。
+3. 点击 **Upload Skill**，将整个 `tech-slides-generator` 文件夹上传。
+4. 确保你的账户已启用 **Code Execution (Artifacts)** 功能。
 
-## 4. Image Prompting Rules
-Fetch Unsplash images directly in Python using `requests` and `BytesIO` to insert real images into the slides.
-Example URL: `https://source.unsplash.com/800x600/?neural-network,dark`
+---
+
+## 💡 Usage / 使用示例
+
+在 Claude 对话框中输入类似以下的指令：
+
+> "调用 **tech-slides-generator** 技能。帮我写一份关于‘2026 具身智能机器人发展趋势’的 PPT，共 8 页。请使用 **🔵 Cyber-Blue** 主题，并在生成后直接给我 .pptx 下载链接。"
+
+---
+
+## 🏗 Architecture / 项目架构
+
+| File / 文件夹 | Purpose / 用途 |
+| :--- | :--- |
+| `SKILL.md` | **Core Brain**: 引导 Claude 的行为逻辑与工作流。 |
+| `references/` | **Knowledge Base**: 存放设计系统、RGB 色值及 Python 代码防幻觉指南。 |
+| `assets/` | **Static Assets**: 包含 16:9 的原生空白 PPT 模板基底。 |
+| `scripts/` | **Dev Tools**: 供开发者在本地环境进行测试的 Python 脚本。 |
+
+---
+
+## 🧠 Philosophy / 设计理念
+
+> *"Inspired by the **Vibe Coding** philosophy — why design manually when you can define the soul of a presentation through natural language and let AI handle the engineering?"*
+> 
+> *"灵感源自 **Vibe Coding** 理念 —— 当你可以通过自然语言定义演示文稿的灵魂并让 AI 处理工程细节时，为什么还要手动设计？"*
 
 ---
 
@@ -68,9 +82,14 @@ Example URL: `https://source.unsplash.com/800x600/?neural-network,dark`
 **AresSheng**
 *AI Product Manager from China* 🇨🇳
 
-> "Bridging the gap between natural language and professional presentation through AI."
-> "致力于通过 AI 消除自然语言与专业汇报之间的鸿沟。"
+致力于通过 AI 消除自然语言与专业汇报之间的鸿沟，探索 AI 原生产品的无限可能。
 
-- **GitHub**: [https://github.com/aresplus]
-- **X (Twitter)**: [@AresSheng]
-- **Role**: AI Product Strategy & Prompt Engineering Specialist
+- **GitHub**: [aresplus](https://github.com/aresplus)
+- **X (Twitter)**: [@AresSheng](https://x.com/AresSheng)
+- **Zhihu**: [AresSheng](https://www.zhihu.com/people/aresng)
+
+---
+
+## 📄 License / 许可证
+
+本项目基于 [MIT License](LICENSE) 开源。
